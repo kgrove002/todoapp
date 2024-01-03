@@ -3,13 +3,13 @@ import { Outlet } from "react-router";
 
 export default function Root() {
   return (
-    <div id="root">
+    <>
       <main>
         <nav className="mainNav">
           <ul>
             <li>
               {" "}
-              <a href="/">To Do</a>
+              <a href="/todolist">To Do</a>
             </li>
             <li>
               {" "}
@@ -30,6 +30,6 @@ export default function Root() {
           <Outlet />
         </div>
       </main>
-    </div>
+    </>
   );
 }
