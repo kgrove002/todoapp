@@ -16,20 +16,25 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/todolist",
-        element: <ToDoList />,
-      },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/groceryList",
-        element: <GroceryList />,
-      },
-      {
-        path: "/settings",
-        element: <Settings />,
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "/todolist",
+            element: <ToDoList />,
+          },
+          {
+            path: "/todolist/about",
+            element: <About />,
+          },
+          {
+            path: "/todolist/grocery",
+            element: <GroceryList />,
+          },
+          {
+            path: "/todolist/settings",
+            element: <Settings />,
+          },
+        ],
       },
     ],
   },

@@ -13,15 +13,15 @@ export default function Root() {
             </li>
             <li>
               {" "}
-              <a href="/groceryList">Grocery</a>
+              <a href="/todolist/grocery">Grocery</a>
             </li>
             <li>
               {" "}
-              <a href="/settings">Settings</a>
+              <a href="/todolist/settings">Settings</a>
             </li>
             <li>
               {" "}
-              <a href="/about">About</a>
+              <a href="/todolist/about">About</a>
             </li>
           </ul>
         </nav>
