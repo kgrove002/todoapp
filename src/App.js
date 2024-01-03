@@ -26,7 +26,7 @@ export default function App() {
           </ul>
         </nav>
         <Routes>
-          <Route exact path="/todolist" element={<ToDoList />} />
+          <Route index path="/todolist" element={<ToDoList />} />
           <Route path="/grocery" element={<GroceryList />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/aboutpage" element={<About />} />
