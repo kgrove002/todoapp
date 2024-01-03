@@ -21,7 +21,7 @@ export default function App() {
               <Link to="/settings">Settings</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/aboutpage">About</Link>
             </li>
           </ul>
         </nav>
@@ -29,7 +29,7 @@ export default function App() {
           <Route exact path="/todolist" element={<ToDoList />} />
           <Route path="/grocery" element={<GroceryList />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/aboutpage" element={<About />} />
         </Routes>
       </div>
     </Router>
