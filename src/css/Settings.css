@@ -90,17 +90,37 @@
     padding: 1.4rem;
   }
 }
-@media (min-height: 800px) {
+@media (min-height: 680px) {
   .settingsNav li {
-    padding: 2.36rem;
+    padding: 2.3rem;
   }
 
   .settingsNav li:hover,
   .settingsNav li:focus {
-    padding: 2.36rem;
+    padding: 2.3rem;
   }
 }
-@media (min-height: 840px) {
+@media (min-height: 730px) {
+  .settingsNav li {
+    padding: 2.3rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 2.3rem;
+  }
+}
+@media (min-height: 750px) {
+  .settingsNav li {
+    padding: 2.5rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 2.5rem;
+  }
+}
+@media (min-height: 812px) {
   .settingsNav li {
     padding: 2.8rem;
   }
