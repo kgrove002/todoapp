@@ -3,27 +3,25 @@ import { Outlet } from "react-router";
 
 export default function Root() {
   return (
-    <>
+    <div id="root">
       <main>
         <nav className="mainNav">
           <ul>
             <li>
               {" "}
-              <a href="https://kgrove002.github.io/todolist/">To Do</a>
+              <a href="/">To Do</a>
             </li>
             <li>
               {" "}
-              <a href="https://kgrove002.github.io/todolist/groceryList">
-                Grocery
-              </a>
+              <a href="/groceryList">Grocery</a>
             </li>
             <li>
               {" "}
-              <a href="https://kgrove002.github.io/todolist/">Settings</a>
+              <a href="/settings">Settings</a>
             </li>
             <li>
               {" "}
-              <a href="https://kgrove002.github.io/todolist/about">About</a>
+              <a href="/about">About</a>
             </li>
           </ul>
         </nav>
@@ -32,6 +30,6 @@ export default function Root() {
           <Outlet />
         </div>
       </main>
-    </>
+    </div>
   );
 }

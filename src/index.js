@@ -11,24 +11,24 @@ import Settings from "./Settings";
 
 const router = createBrowserRouter([
   {
-    path: "https://kgrove002.github.io/todolist/",
+    path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "https://kgrove002.github.io/todolist/",
+        path: "/",
         element: <ToDoList />,
       },
       {
-        path: "https://kgrove002.github.io/todolist/about",
+        path: "/about",
         element: <About />,
       },
       {
-        path: "https://kgrove002.github.io/todolist/groceryList",
+        path: "/groceryList",
         element: <GroceryList />,
       },
       {
-        path: "https://kgrove002.github.io/todolist/settings",
+        path: "/settings",
         element: <Settings />,
       },
     ],
