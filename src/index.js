@@ -1,49 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import About from "./About";
 import "./css/App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root from "./routes/root";
-import ErrorPage from "./error-page";
-import ToDoList from "./ToDoList";
-import GroceryList from "./GroceryList";
-import Settings from "./Settings";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        errorElement: <ErrorPage />,
-        children: [
-          {
-            path: "/todolist",
-            element: <ToDoList />,
-          },
-          {
-            path: "/todolist/about",
-            element: <About />,
-          },
-          {
-            path: "/todolist/grocery",
-            element: <GroceryList />,
-          },
-          {
-            path: "/todolist/settings",
-            element: <Settings />,
-          },
-        ],
-      },
-    ],
-  },
-]);
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>
 );
 
