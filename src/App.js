@@ -12,7 +12,7 @@ export default function App() {
         <nav className="mainNav">
           <ul>
             <li>
-              <Link to="/">To Do</Link>
+              <Link to="/todolist">To Do</Link>
             </li>
             <li>
               <Link to="/grocery">Grocery</Link>
@@ -26,7 +26,7 @@ export default function App() {
           </ul>
         </nav>
         <Routes>
-          <Route exact path="/" element={<ToDoList />} />
+          <Route exact path="/todolist" element={<ToDoList />} />
           <Route path="/grocery" element={<GroceryList />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/about" element={<About />} />
