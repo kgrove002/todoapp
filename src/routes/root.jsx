@@ -9,19 +9,21 @@ export default function Root() {
           <ul>
             <li>
               {" "}
-              <a href="/">To Do</a>
+              <a href="https://kgrove002.github.io/todolist/">To Do</a>
             </li>
             <li>
               {" "}
-              <a href="/groceryList">Grocery</a>
+              <a href="https://kgrove002.github.io/todolist/groceryList">
+                Grocery
+              </a>
             </li>
             <li>
               {" "}
-              <a href="/settings">Settings</a>
+              <a href="https://kgrove002.github.io/todolist/">Settings</a>
             </li>
             <li>
               {" "}
-              <a href="/about">About</a>
+              <a href="https://kgrove002.github.io/todolist/about">About</a>
             </li>
           </ul>
         </nav>
