@@ -11,7 +11,7 @@ function About() {
         <p>
           This application is a project done by Kevin Grove. For more
           information about Kevin, you can visit the link,{" "}
-          <a href="https://kgrove002.github.io/portfolio/" target="_blank">
+          <a href="https://kgrove002.github.io/" target="_blank">
             here
           </a>
           . This application was developed to help individuals manage their time
