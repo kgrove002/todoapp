@@ -1,0 +1,1 @@
+This application is a personal/side project of mine. This project is coding in React.js and shows my ability with managing data and styling it. This application currently runs on localStorage, however will be converted to server storage after I have finished building and developing the server that will run it.
