@@ -7,8 +7,8 @@ import App from "./App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
+    <Router basename="/todoapp">
+    <Routes>
         <Route path="/*" element={<App />} />
       </Routes>
     </Router>
