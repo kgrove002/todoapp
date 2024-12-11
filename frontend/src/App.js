@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import ToDoList from "./ToDoList";
 import GroceryList from "./GroceryList";
 import Settings from "./Settings";
@@ -52,18 +52,21 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route index element={<Login handleLogin={handleLogin} setLogin={setLogin}/>} />
-      <Route path="signup" element={<Signup />}/>
-      <Route path="forGotPassword" element={<ForgotPassword />}/>
-      <Route path="/" element={<Layout setUserData={setUserData} setLogin={setLogin}/>}>
-        <Route path="toDoList" element={<ToDoList id={userData?.customer_id} login={login} />} />
-        <Route path="grocery" element={<GroceryList id={userData?.customer_id} login={login}/>} />
-        <Route path="settings" element={<Settings login={login} cusId={userData?.customer_id}/>} />
-        <Route path="userSettings" element={<UserSettings refreshData={refreshData} id={userData?.customer_id} email={userData?.customer_email} password={userData?.password} pin={userData?.pin} login={login} firstName={userData?.first_name}/>} />
-      </Route>
-      <Route path="*" element={<Error />} />
-    </Routes>
+    <BrowserRouter basename="/todoapp">
+  <Routes>
+    <Route index element={<Login handleLogin={handleLogin} setLogin={setLogin} />} />
+    <Route path="signup" element={<Signup />} />
+    <Route path="forgotPassword" element={<ForgotPassword />} />
+    <Route path="/" element={<Layout setUserData={setUserData} setLogin={setLogin} />}>
+      <Route path="toDoList" element={<ToDoList id={userData?.customer_id} login={login} />} />
+      <Route path="grocery" element={<GroceryList id={userData?.customer_id} login={login} />} />
+      <Route path="settings" element={<Settings login={login} cusId={userData?.customer_id} />} />
+      <Route path="userSettings" element={<UserSettings refreshData={refreshData} id={userData?.customer_id} email={userData?.customer_email} password={userData?.password} pin={userData?.pin} login={login} firstName={userData?.first_name} />} />
+    </Route>
+    <Route path="*" element={<Error />} />
+  </Routes>
+</BrowserRouter>
+
   );
 }
 
