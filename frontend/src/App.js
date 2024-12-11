@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ToDoList from "./ToDoList";
 import GroceryList from "./GroceryList";
 import Settings from "./Settings";
@@ -52,7 +52,6 @@ function App() {
   }
 
   return (
-    <BrowserRouter basename="/todoapp">
   <Routes>
     <Route index element={<Login handleLogin={handleLogin} setLogin={setLogin} />} />
     <Route path="signup" element={<Signup />} />
@@ -65,7 +64,6 @@ function App() {
     </Route>
     <Route path="*" element={<Error />} />
   </Routes>
-</BrowserRouter>
 
   );
 }
