@@ -1,0 +1,173 @@
+.dayTitle {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.settings {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid mediumblue;
+  margin: 0 auto;
+  align-items: first baseline;
+  min-height: 94vh;
+}
+.settingsContent {
+  width: 80%;
+}
+
+.settingsNav {
+  width: 20%;
+  background-color: #2200ff;
+  align-items: center;
+  max-width: 100px;
+}
+
+.settingsNav ul {
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.settingsNav li {
+  padding: 3rem;
+}
+
+.settingsNav li:hover,
+.settingsNav li:focus {
+  padding: 3rem;
+}
+
+.settingsNav li a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.settingsNav li:hover,
+.settingsNav li:focus,
+.settingsNav li:hover a,
+.settingsNav li:focus a {
+  background-color: #eee;
+  color: #333;
+}
+
+.settingsNav li:hover a,
+.settingsNav li:focus a {
+  cursor: pointer;
+}
+
+.Footer {
+  display: block;
+}
+@media screen and (max-width: 400px) {
+  .settings label {
+    font-size: 1.4rem;
+  }
+
+  .settingsNav li {
+    padding: 2.1rem;
+    font-size: 0.75rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 2.1rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .settingsNav li {
+    padding: 1.4rem;
+  }
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 1.4rem;
+  }
+}
+@media (min-height: 680px) {
+  .settingsNav li {
+    padding: 2.3rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 2.3rem;
+  }
+}
+@media (min-height: 730px) {
+  .settingsNav li {
+    padding: 2.5rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 2.5rem;
+  }
+}
+@media (min-height: 750px) {
+  .settingsNav li {
+    padding: 2.7rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 2.7rem;
+  }
+}
+@media (min-height: 812px) {
+  .settingsNav li {
+    padding: 2.9rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 2.9rem;
+  }
+}
+
+@media (min-height: 900px) {
+  .settingsNav li {
+    padding: 3.2rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 3.2rem;
+  }
+}
+@media (min-height: 1000px) {
+  .settingsNav li {
+    padding: 3.3rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 3.3rem;
+  }
+}
+@media (min-height: 1000px) {
+  .settingsNav li {
+    padding: 3.92rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 3.92rem;
+  }
+}
+@media (min-height: 1366px) {
+  .settingsNav li {
+    padding: 4.7rem;
+  }
+
+  .settingsNav li:hover,
+  .settingsNav li:focus {
+    padding: 4.7rem;
+  }
+}

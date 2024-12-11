@@ -1,0 +1,88 @@
+import './App.css';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
+function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userData, setUserData] = useState(null); // State to hold the user data
+  const [error, setError] = useState(null);
+  const [sundayTasks, setSundayTasks] = useState([]); // Initialize as empty array
+
+  const handleLogin = async (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+    try {
+      const response = await axios.post('http://10.0.0.129:5000/login', {
+        email,
+        password,
+      });
+
+      setUserData(response.data); // Set the user data state
+      setError(null); // Clear any previous errors
+    } catch (err) {
+      if (err.response && err.response.status === 404) {
+        setError('User not found');
+      } else {
+        setError('Server error');
+      }
+      setUserData(null); // Clear user data on error
+    }
+  };
+
+  // useEffect to load Sunday tasks when userData is updated
+  useEffect(() => {
+    if (userData && userData.customer_id) {
+      loadSundayTasks("sunday", userData.customer_id);
+    }
+  }, [userData]);
+
+  const loadSundayTasks = async (table, id) => {
+    try {
+      const response = await axios.post('http://10.0.0.129:5000/loadTasks', {
+        table,
+        id,
+      });
+
+      setSundayTasks(response.data);
+    } catch (err) {
+      if (err.response && err.response.status === 404) {
+        setError('Tasks not found');
+      } else {
+        setError('Server error');
+      }
+    }
+  };
+
+  return (
+    <div className="App">
+      <form onSubmit={handleLogin}>
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label>Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
+
+      {error && <p>{error}</p>}
+
+      {sundayTasks.length > 0 && userData && (
+        <div>
+          <h2>Welcome, {userData.first_name}</h2>
+          {sundayTasks.map((task, index) => (
+            <p key={index}>{task.task_desc}</p>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
