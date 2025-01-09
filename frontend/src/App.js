@@ -20,7 +20,7 @@ function App() {
 
   const handleLogin = async (email, password) => {
     try {
-      const response = await axios.post('http://73.216.67.101:5000/login', { email, password });
+      const response = await axios.post('https://73.216.67.101:5000/login', { email, password });
       
       if (response.data) {
         setUserData(response.data);

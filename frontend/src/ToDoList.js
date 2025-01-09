@@ -24,7 +24,7 @@ export default function ToDoList({id, login}) {
 
   const loadTasksForDay = useCallback(async (table, id) => {
     try {
-      const response = await axios.post('http://73.216.67.101:5000/loadTasks', {
+      const response = await axios.post('https://73.216.67.101:5000/loadTasks', {
         table,
         id,
       });
@@ -71,7 +71,7 @@ export default function ToDoList({id, login}) {
 
   const adjustCheckOnDatabase = async (table, id, task, check) => {
     try {
-      const response = await axios.post('http://73.216.67.101:5000/alterCheckTasks', {
+      const response = await axios.post('https://73.216.67.101:5000/alterCheckTasks', {
         table,
         id,
         item: task,  // Ensure that the server expects "item" as the key

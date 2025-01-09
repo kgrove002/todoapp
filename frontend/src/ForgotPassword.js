@@ -15,7 +15,7 @@ function ForgotPassword() {
 
   const checkAccount = async () => {
     try {
-      const response = await axios.post('http://73.216.67.101:5000/forgotPassword', { email, pin });
+      const response = await axios.post('https://73.216.67.101:5000/forgotPassword', { email, pin });
       if (response.data) {
         setError(null);
         setTempData(response.data);

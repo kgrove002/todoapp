@@ -61,7 +61,7 @@ export default function Settings({login, cusId}) {
 
   const loadTasksForDay = async (table, id) => {
     try {
-      const response = await axios.post('http://73.216.67.101:5000/loadTasks', {
+      const response = await axios.post('https://73.216.67.101:5000/loadTasks', {
         table,
         id,
       });
@@ -79,7 +79,7 @@ export default function Settings({login, cusId}) {
 
   const addItemToDatabase = async (table, id, task) => {
     try {
-      const response = await axios.post('http://73.216.67.101:5000/addTasks', {
+      const response = await axios.post('https://73.216.67.101:5000/addTasks', {
         table,
         id,
         item: task,  // Ensure that the server expects "item" as the key
@@ -98,7 +98,7 @@ export default function Settings({login, cusId}) {
 
   const deleteItemToDatabase = async (table, id, task) => {
     try {
-      const response = await axios.post('http://73.216.67.101:5000/deleteTasks', {
+      const response = await axios.post('https://73.216.67.101:5000/deleteTasks', {
         table,
         id,
         item: task,  // Ensure that the server expects "item" as the key
