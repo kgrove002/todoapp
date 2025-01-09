@@ -1,0 +1,59 @@
+.Login {
+    border: 1px solid mediumblue;
+    margin: 0 auto;
+    align-items: first baseline;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    flex-grow: 1;
+  }
+
+.headings {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.loginForm {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding-left: 2rem;
+}
+
+.input {
+  flex-grow: 1;
+  max-width: calc(100% - 50px);
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.label {
+    padding-bottom: 0.5rem;
+}
+
+.loginForm button{
+  margin-top: 1rem;
+  width: 90%;
+}
+
+.buttonGrid {
+  padding-top: 2rem;
+  display: flex;
+  width: 80%;
+}
+
+.buttonGrid button {
+  width: 40%; /* Each button takes 50% of the grid's width */
+  margin: 1rem;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+}

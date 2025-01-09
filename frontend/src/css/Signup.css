@@ -1,0 +1,71 @@
+.signUp {
+    border: 1px solid mediumblue;
+    margin: 0 auto;
+    align-items: first baseline;
+    align-items: center;
+    min-height: 94.6vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    flex-grow: 1;
+  }
+
+.headings {
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.signupForm {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: auto;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.input {
+  flex-grow: 1;
+  max-width: calc(100% - 50px);
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+  margin-left: 0.5rem;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.label {
+    padding-bottom: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.infoGrid button{
+  height: 32px;
+  max-width: 56px;
+}
+
+.infoGrid {
+  display: flex;
+  justify-content: space-between; /* Places the label on the left and the button on the right */
+  align-items: center; /* Ensures both the label and button are vertically aligned */
+  width: 92%; /* Ensures it takes up the full width of its container */
+  padding-bottom: 0.5rem;
+}
+
+.buttonGrid {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;  /* Centers the buttons horizontally */
+  align-items: center;      /* Centers the buttons vertically, if needed */
+  width: 80%;               /* Keeps the width at 80% */
+  margin: 0 auto;           /* Centers the entire grid within its parent */
+}
+
+.buttonGrid button {
+  width: 40%;               /* Each button takes 40% of the grid's width */
+  margin: 1rem;
+  box-sizing: border-box;    /* Ensures padding and border are included in the width */
+}

@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+.App{
+  min-height: 95vh;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #efefef;
+}
+
+.mainNav {
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  max-width: 500px;
+  margin: auto;
+}
+
+.mainNav ul {
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.mainNav li {
+  padding: 1rem;
+}
+
+.mainNav li:hover,
+.mainNav li:focus {
+  padding: 1rem;
+}
+
+.mainNav li a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.mainNav li:hover,
+.mainNav li:focus,
+.mainNav li:hover a,
+.mainNav li:focus a {
+  background-color: #eee;
+  color: #333;
+}
+
+.mainNav li:hover a,
+.mainNav li:focus a {
+  cursor: pointer;
+}
+
+#error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+}
+
+  .mainNav li {
+    padding: 0.6rem;
+  }
+
+  .mainNav li:hover,
+  .mainNav li:focus {
+    padding: 0.6rem;
+  }
+
+@media screen and (max-width: 400px) {
+  .mainNav li a {
+    font-size: 13px;
+  }
+}

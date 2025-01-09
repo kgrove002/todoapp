@@ -1,0 +1,43 @@
+.userSettings {
+    border: 1px solid mediumblue;
+    margin: 0 auto;
+    align-items: first baseline;
+    align-items: center;
+    min-height: 94.6vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    flex-grow: 1;
+  }
+
+.headings {
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.updateForm {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: auto;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.input {
+  flex-grow: 1;
+  max-width: calc(100% - 50px);
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+  margin-left: 0.5rem;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.label {
+    padding-bottom: 0.5rem;
+    margin-left: 0.5rem;
+}
