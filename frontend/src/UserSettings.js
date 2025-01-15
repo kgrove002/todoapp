@@ -35,7 +35,7 @@ function UserSettings({ refreshData, id, email, password, pin, login, firstName 
       return response.data.exists; // Return the "exists" boolean from the response
     } catch (err) {
       if (err.response && err.response.status === 404) {
-        setError('Tasks not found');
+        setError('Email is taken!');
       } else {
         setError('Server error');
       }

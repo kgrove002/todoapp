@@ -99,7 +99,7 @@ app.post('/loadTasks', async (req, res) => {
   
     try {
       // Construct the query string to insert the task
-      const queryText = `DELETE FROM public.${table} WHERE task_desc = $2 and customer_id = $1`; 
+      const queryText = `DELETE FROM public.${table} WHERE task_desc = $2 and task_id = $1`; 
       const result = await pool.query(queryText, [id, item]);
   
       // Send back the inserted row
