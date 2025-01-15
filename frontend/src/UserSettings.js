@@ -31,7 +31,7 @@ function UserSettings({ refreshData, id, email, password, pin, login, firstName 
 
   const checkEmail = async (email) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/checkEmail', { email });
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/checkEmail', { email });
       return response.data.exists; // Return the "exists" boolean from the response
     } catch (err) {
       if (err.response && err.response.status === 404) {
@@ -45,7 +45,7 @@ function UserSettings({ refreshData, id, email, password, pin, login, firstName 
 
   const updateEmailDB = async (email) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/updateEmail', {
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/updateEmail', {
         id,
         email,
       });
@@ -62,7 +62,7 @@ function UserSettings({ refreshData, id, email, password, pin, login, firstName 
 
   const updatePinDB = async (pin) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/updatePin', {
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/updatePin', {
         id,
         pin,
       });
@@ -79,7 +79,7 @@ function UserSettings({ refreshData, id, email, password, pin, login, firstName 
 
   const updatePasswordDB = async (password) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/updatePassword', {
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/updatePassword', {
         id,
         password,
       });

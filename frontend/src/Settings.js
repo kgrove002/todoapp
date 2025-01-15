@@ -1,23 +1,24 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaPlus, FaTrashAlt } from "react-icons/fa";
 import "./css/Settings.css";
 import "./css/App.css";
 import { useNavigate } from "react-router";
 
-export default function Settings({login, cusId}) {
+export default function Settings({ login, cusId }) {
   const [day, setDay] = useState("Sunday");
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [newTask, setNewTask] = useState("");
+  const [reloadFlag, setReloadFlag] = useState(false);
 
   const navigate = useNavigate();
 
-    useEffect(() => {
-      if(!login) {
-        navigate("/")};
-    },[login, navigate])
+  useEffect(() => {
+    if (!login) {
+      navigate("/");
+    }
+  }, [login, navigate]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +26,7 @@ export default function Settings({login, cusId}) {
 
       switch (day) {
         case "Sunday":
-          tasks = await loadSundayTasks(cusId);// userData.customer_id. put this back after login system is implemented
+          tasks = await loadSundayTasks(cusId);
           break;
         case "Monday":
           tasks = await loadMondayTasks(cusId);
@@ -56,22 +57,23 @@ export default function Settings({login, cusId}) {
     };
 
     fetchData();
-  // eslint-disable-next-line
-  }, [day, cusId]);
+  }, [day, cusId, reloadFlag]);
 
   const loadTasksForDay = async (table, id) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/loadTasks', {
-        table,
-        id,
-      });
-  
+      const response = await axios.post(
+        "https://kgtodoappbackend.onrender.com/loadTasks",
+        {
+          table,
+          id,
+        }
+      );
       return response.data;
     } catch (err) {
       if (err.response && err.response.status === 404) {
         setError(`Tasks not found for ${table}`);
       } else {
-        setError('Server error');
+        setError("Server error");
       }
       return null;
     }
@@ -79,68 +81,68 @@ export default function Settings({login, cusId}) {
 
   const addItemToDatabase = async (table, id, task) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/addTasks', {
+      await axios.post("https://kgtodoappbackend.onrender.com/addTasks", {
         table,
         id,
-        item: task,  // Ensure that the server expects "item" as the key
+        item: task,
       });
-      return response.data; // Return the response data to the caller
     } catch (err) {
       if (err.response && err.response.status === 400) {
         setError(`Invalid table name: ${table}`);
         alert(error);
       } else {
-        setError('Server error');
+        setError("Server error");
       }
-      return null; // Return null in case of an error
     }
   };
 
   const deleteItemToDatabase = async (table, id, task) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/deleteTasks', {
+      await axios.post("https://kgtodoappbackend.onrender.com/deleteTasks", {
         table,
         id,
-        item: task,  // Ensure that the server expects "item" as the key
+        item: task,
       });
-      return response.data; // Return the response data to the caller
     } catch (err) {
       if (err.response && err.response.status === 400) {
         setError(`Invalid table name: ${table}`);
       } else {
-        setError('Server error');
+        setError("Server error");
       }
-      return null; // Return null in case of an error
     }
   };
-  
-  
-  const loadSundayTasks = async (id) => loadTasksForDay("sunday", cusId);
-  const loadMondayTasks = async (id) => loadTasksForDay("monday", cusId);
-  const loadTuesdayTasks = async (id) => loadTasksForDay("tuesday", cusId);
-  const loadWednesdayTasks = async (id) => loadTasksForDay("wednesday", cusId);
-  const loadThursdayTasks = async (id) => loadTasksForDay("thursday", cusId);
-  const loadFridayTasks = async (id) => loadTasksForDay("friday", cusId);
-  const loadSaturdayTasks = async (id) => loadTasksForDay("saturday", cusId);
+
+  const loadSundayTasks = async (id) => loadTasksForDay("sunday", id);
+  const loadMondayTasks = async (id) => loadTasksForDay("monday", id);
+  const loadTuesdayTasks = async (id) => loadTasksForDay("tuesday", id);
+  const loadWednesdayTasks = async (id) => loadTasksForDay("wednesday", id);
+  const loadThursdayTasks = async (id) => loadTasksForDay("thursday", id);
+  const loadFridayTasks = async (id) => loadTasksForDay("friday", id);
+  const loadSaturdayTasks = async (id) => loadTasksForDay("saturday", id);
 
   const validEntry = /[a-z]/i;
 
-  const addItem = (item) => {
-    const myNewTask = { customer_id: cusId, is_checked: false, task_desc: item};
-    const newData = [...data, myNewTask];
-    addItemToDatabase(day.toLocaleLowerCase(), cusId, item);
-    setData(newData);
+  const addItem = async (item) => {
+    try {
+      await addItemToDatabase(day.toLowerCase(), cusId, item);
+      setReloadFlag((prev) => !prev); // Trigger reload only after the operation
+    } catch (err) {
+      console.error("Error adding item:", err);
+    }
   };
 
-  const handleDelete = (id, task) => {
-    const tasks = data.filter((tasklist) => tasklist.task_id !== id);
-    setData(tasks);
-    deleteItemToDatabase(day.toLocaleLowerCase(), id, task);
+  const handleDelete = async (id, task) => {
+    try {
+      await deleteItemToDatabase(day.toLowerCase(), id, task);
+      setReloadFlag((prev) => !prev); // Trigger reload only after the operation
+    } catch (err) {
+      console.error("Error deleting item:", err);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validEntry.test(newTask) === false) {
+    if (!validEntry.test(newTask)) {
       setNewTask("");
       return;
     } else {
@@ -153,6 +155,7 @@ export default function Settings({login, cusId}) {
     console.log(`changing data to ${dayText}`);
     setDay(dayText);
   };
+
   return (
     <div className="App">
       <div className="settings">
@@ -179,7 +182,6 @@ export default function Settings({login, cusId}) {
               value={newTask}
               onChange={(e) => setNewTask(e.target.value)}
             />
-
             <button type="submit" aria-label="Add Item">
               <FaPlus />
             </button>
@@ -188,8 +190,8 @@ export default function Settings({login, cusId}) {
           {data.length ? (
             <ul>
               {data.map((task) => (
-                <li className="item">
-                  <label>{task.task_desc} </label>
+                <li key={task.task_id} className="item">
+                  <label>{task.task_desc}</label>
                   <FaTrashAlt
                     role="button"
                     tabIndex="0"

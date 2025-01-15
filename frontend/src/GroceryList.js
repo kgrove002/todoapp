@@ -28,7 +28,7 @@ export default function GroceryList({id, login}) {
 
   const loadTasksGroceryList = async (table, id) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/loadTasks', {
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/loadTasks', {
         table,
         id,
       });
@@ -46,7 +46,7 @@ export default function GroceryList({id, login}) {
   
   const addItemToDatabase = async (table, id, task) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/addTasks', {
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/addTasks', {
         table,
         id,
         item: task,  // Ensure that the server expects "item" as the key
@@ -64,7 +64,7 @@ export default function GroceryList({id, login}) {
 
   const deleteItemToDatabase = async (table, id, task) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/deleteTasks', {
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/deleteTasks', {
         table,
         id,
         item: task,  // Ensure that the server expects "item" as the key
@@ -82,7 +82,7 @@ export default function GroceryList({id, login}) {
 
   const adjustCheckOnDatabase = async (table, id, task, check) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/alterCheckTasks', {
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/alterCheckTasks', {
         table,
         id,
         item: task,  // Ensure that the server expects "item" as the key

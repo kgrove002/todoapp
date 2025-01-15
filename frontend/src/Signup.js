@@ -19,7 +19,7 @@ function Signup() {
 
   const addUserToDB = async (firstName, lastName, pin, password, email) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/addCustomer', {
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/addCustomer', {
         firstName,
         lastName,
         pin,
@@ -62,7 +62,7 @@ function Signup() {
 
   const checkEmail = async (email) => {
     try {
-      const response = await axios.post('https://73.216.67.101:5000/checkEmail', { email });
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/checkEmail', { email });
       return response.data.exists;  // Return the "exists" boolean from the response
     } catch (err) {
       if (err.response && err.response.status === 404) {

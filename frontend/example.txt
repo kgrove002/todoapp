@@ -12,7 +12,7 @@ function App() {
   const handleLogin = async (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
     try {
-      const response = await axios.post('http://10.0.0.129:5000/login', {
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/login', {
         email,
         password,
       });
@@ -38,7 +38,7 @@ function App() {
 
   const loadSundayTasks = async (table, id) => {
     try {
-      const response = await axios.post('http://10.0.0.129:5000/loadTasks', {
+      const response = await axios.post('https://kgtodoappbackend.onrender.com/loadTasks', {
         table,
         id,
       });
